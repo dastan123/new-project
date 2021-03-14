@@ -1,0 +1,210 @@
+body {
+      font-family: 'Maven Pro', sans-serif;
+      margin: 0;
+}
+
+/* Layout  */
+
+header {
+      color: white;
+      background-image: url(img/Background--1.png);
+      background-repeat: no-repeat;
+      height: 1200px;
+}
+
+.head-navigation {
+      display: flex;
+}
+
+.nav-list {
+      display: flex;
+      margin-left: 303px;
+
+}
+
+.welcome-section {
+      text-align: center;
+}
+
+.head-navigation {
+      padding-top: 50px;
+}
+
+.welcome-text {
+      margin-top: 80px;
+      margin-bottom: 90px;
+}
+
+.features-list {
+     display: flex;
+}
+
+.list {
+      text-align: center;
+}
+
+
+.list-1 {
+      background-color: red;
+}
+
+.list:nth-child(4) {
+      margin-right: 150px;
+      margin-top: -15px;
+      margin-left: 50px;
+
+}
+
+.list:nth-child(3) {
+      margin-top: -10px;
+      margin-left: 50px;
+}
+
+.list:nth-child(1) {
+      margin-left: 310px;
+}
+
+.list:nth-child(2) {
+      margin-top: -5px;
+      margin-left: 50px;
+}
+
+/* Text */
+
+.feature-line {
+      width: 35px;
+      height: 1px;
+      background-color: #6a6a6a;
+      margin-bottom: 18px;
+      margin-top: 19px;
+}
+
+.features-text {
+      font-size: 14px;
+      line-height: 20px;
+      color: #b3b3b3;
+}
+
+.features-tag {
+      color: #6a6a6a;
+      margin-top: 30px;
+}
+
+.nav-list > li {
+      font-size: 15px;
+      list-style: none;
+      margin-left: 40px;
+}
+
+.nav-list > li:hover {
+      color: #e74c3c;
+}
+
+
+
+.priority-tag {
+      font-size: 25px;
+      font-weight: lighter;
+      margin-top: 250px;
+}
+
+.welcome-tag {
+      font-size: 70px;
+      margin-top: 0;
+}
+
+.line {
+      width: 70px;
+      height: 1px;
+      border: 0.1px solid white;
+      background-color: white;
+}
+
+.line-welcome {
+      position: absolute;
+      top: 520px ;
+      left: 870px;
+      width: 50px;
+}
+
+.line-welcome-2 {
+      position: absolute;
+      top: 520px ;
+      left: 965px;
+      width: 50px;
+}
+
+.dot {
+      position: absolute;
+      top: 525px;
+      left: 937px;
+      width: 10px;
+      height: 10px;
+      background-color: #e74c3c;
+      border-radius: 10px;
+}
+
+/* UTILITIES  */
+
+p {
+      font-size: 15px;
+}
+
+li {
+      list-style: none;
+}
+
+/* Images  */
+
+.header-logo {
+      margin-left: 476px;
+}
+
+.down-image {
+      margin-left: 930px;
+}
+
+.images {
+      border: 1px solid #e5e5e5;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      width: 100px;
+      margin-left: 90px;
+}
+
+.active-tag {
+      color: red
+}
+
+.active-images {
+      border: 1px solid #e74c3c;
+}
+
+.active-text {
+      color: #f5f5f5;
+}
+
+
+/* Button */
+
+.btn {
+      font-size: 15px;
+      border: none;
+      background-color: #e74c3c;
+      font-weight: bold;
+      color: white;
+}
+
+.start-button {
+      width: 250px;
+      height: 55px;
+      margin-bottom: 250px;
+}
+
+.learn-button {
+      width: 250px;
+      height: 55px;
+      border: 1px solid rgb(0, 0, 0);
+      background-color: transparent;
+}
+
