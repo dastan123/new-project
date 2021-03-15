@@ -1,20 +1,20 @@
 class FeatureTab {
-      constructor(src, tag, parentSelector, ...rest) {
-            this.src = src;
-            this.tag = tag;
-            this.rest = rest;
-            this.parent = document.querySelector(parentSelector);
-      }
- 
-      render() {
-            const element = document.createElement('li');
-            if (this.rest.length === 0) {
-                  element.classList.add('list');
-            } else {
-                  this.rest.forEach(classes => element.classList.add(classes));
-            }
+  constructor(src, tag, parentSelector, ...rest) {
+    this.src = src;
+    this.tag = tag;
+    this.rest = rest;
+    this.parent = document.querySelector(parentSelector);
+  }
 
-            element.innerHTML = `
+  render() {
+    const element = document.createElement("li");
+    if (this.rest.length === 0) {
+      element.classList.add("list");
+    } else {
+      this.rest.forEach((classes) => element.classList.add(classes));
+    }
+
+    element.innerHTML = `
             <p class="images">
              <img class="features-image glasses-image" src="img/${this.src}" alt=""></img>
             </p> 
@@ -28,147 +28,259 @@ class FeatureTab {
              Ipsum has been the industry.
             </p>
             `;
-            this.parent.append(element);
-      }
+    this.parent.append(element);
+  }
 }
 
 const love = new FeatureTab(
-      'love.png',
-      'CLEAN CODE',
-      '.features-list'
+  "love.png",
+  "CLEAN CODE",
+  ".features-list"
 ).render();
-
 
 const comment = new FeatureTab(
-      'comment.png',
-      'FREE SUPPORT',
-      '.features-list'
+  "comment.png",
+  "FREE SUPPORT",
+  ".features-list"
 ).render();
 
-
 const idea = new FeatureTab(
-      'idea.png',
-      'CREATIVE IDEA',
-      '.features-list'
+  "idea.png",
+  "CREATIVE IDEA",
+  ".features-list"
 ).render();
 
 // tab
 
-const listParent = document.querySelector('.features-list'),
-      list = document.querySelectorAll('.list'),
-      tag = document.querySelectorAll('.features-tag'),
-      text = document.querySelectorAll('.features-text'),
-      img = document.querySelectorAll('.images');
+const listParent = document.querySelector(".features-list"),
+  list = document.querySelectorAll(".list"),
+  tag = document.querySelectorAll(".features-tag"),
+  text = document.querySelectorAll(".features-text"),
+  img = document.querySelectorAll(".images");
 
 function showActiveClasses(i = 0) {
-      // tag.forEach(tag => tag.classList.add('active-tag'));
-      // text.forEach(text => text.classList.add('active-tag'));
-      // img.forEach(img => img.classList.add('active-tag'));
+  // tag.forEach(tag => tag.classList.add('active-tag'));
+  // text.forEach(text => text.classList.add('active-tag'));
+  // img.forEach(img => img.classList.add('active-tag'));
 
-      tag[i].classList.add('active-tag');
-      text[i].classList.add('active-text');
-      img[i].classList.add('active-images');
+  tag[i].classList.add("active-tag");
+  text[i].classList.add("active-text");
+  img[i].classList.add("active-images");
 }
-
 
 function hideActiveClasses() {
-      tag.forEach(tag => tag.classList.remove('active-tag'));
-      text.forEach(text => text.classList.remove('active-text'));
-      img.forEach(img => img.classList.remove('active-images'));
+  tag.forEach((tag) => tag.classList.remove("active-tag"));
+  text.forEach((text) => text.classList.remove("active-text"));
+  img.forEach((img) => img.classList.remove("active-images"));
 }
 
-listParent.addEventListener('click', e => {
-      const target = e.target;
-      if (target.classList.contains('list')) {
-            list.forEach((li, i) => {
-                  if (target == li) {
-                        hideActiveClasses();
-                        showActiveClasses(i);
-                  }
-            console.log('hello');
-            });
-      } else {
-            hideActiveClasses();
+listParent.addEventListener("click", (e) => {
+  const target = e.target;
+  if (target.classList.contains("list")) {
+    list.forEach((li, i) => {
+      if (target == li) {
+        hideActiveClasses();
+        showActiveClasses(i);
       }
+      console.log("hello");
+    });
+  } else {
+    hideActiveClasses();
+  }
 
-      // if (target.classList.contains('active-tag')) {
-      //       hideActiveClasses();
-      // }
+  // if (target.classList.contains('active-tag')) {
+  //       hideActiveClasses();
+  // }
 });
 
-// console.log('request data');
+// Modal
 
-// const req = new Promise(function(resolve, reject) {
-//       setTimeout(() => {
-//             console.log('hello');
-      
-//             const product = {
-//                   name: 'TV',
-//                   price: 2000
-//             };
+const btn = document.querySelector(".open-modal"),
+  modal = document.querySelector(".modal"),
+  modalContent = document.querySelector(".modal-content"),
+  modalDialog = document.querySelector(".modal-dialog"),
+  closeModal = document.querySelector(".close"),
+  form = document.querySelector("form");
 
-//             const hello = {
-//                   what: 'hello'
-//             };
+function openModal() {
+  modal.style.display = "block";
+}
 
-//             resolve(hello);
-//       }, 2000);
-// });
+function hideModal() {
+  modal.style.display = "none";
+}
 
-// req.then((product) => {
-//       return new Promise((resolve, reject) => {
-//             setTimeout(() => {
-//                   product.status = 'ordered';
-//                   resolve(product);
-//             }, 2000);
-//       });
-// }).then((data) => {
-//       data.modify = true;
-//       return data;
-//       // console.log(data);
-// }).then((dta) => {
-//       dta.result = 'good';
-//       return dta;
-// }).then(yy => {
-//       console.log(yy);
-// }).catch(() => {
-//       console.error('Error');
-// }).finally(() => {
-//       console.log('finally');
-// });
+btn.addEventListener("click", (e) => {
+  openModal();
+});
 
-const test = time => {
-      return new Promise(resolve => {
-            setTimeout(() => resolve(), time);
-      });
+modal.addEventListener("click", (e) => {
+  const target = e.target;
+  if (
+    target.classList.contains("modal") ||
+    target.classList.contains("close")
+  ) {
+    hideModal();
+  }
+});
+
+const message = {
+  loading: "img/loading.png",
+  success: "Succesfully Loaded",
+  failed: "Failed",
 };
 
-// test(1000).then(() => console.log('1000sec'));
-// test(2000).then(() => console.log('2000sec'));
+function modalData(form) {
+  modal.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const statusMessage = document.createElement("img");
+    statusMessage.src = message.loading;
+    statusMessage.style.cssText = `
+            width: 50px;
+            height: 50px;
+            `;
+    modalContent.insertAdjacentElement('beforeend', statusMessage);
+    const formData = new FormData(form);
+    const object = {};
+    formData.forEach(function(value, key){
+      object[key] = value;
+    });
+    fetch('js/index.php', {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(object)
+    })
+    .then(data => data.text())
+    .then(data => {
+        console.log(data);
+        showThanksModal(message.success);
+        statusMessage.remove();
+      }).catch(() => {
+        statusMessage.remove();
+        showThanksModal(message.failed);
+      }).finally(() => {
+        form.reset();
+      });
+      // req.addEventListener("load", (e) => {
+    //   if (req.status === 200) {
+    //     console.log(req.response);
+    //     showThanksModal(message.success);
+    //     statusMessage.remove();
+    //     form.reset();
+    //   } else {
+    //     showThanksModal(message.failed);
+    //   }
+    // });
+  });
+}
 
-Promise.all([test(10200), test(2000)]).then(() => {
-      console.log('All');
+modalData(form);
+
+function showThanksModal(message) {
+  // const prevModalContent = document.querySelector('.modal-dialog');
+  modalDialog.classList.add("hide");
+  // openModal();
+  const div = document.createElement("div");
+  div.classList.add("modal-dialog");
+  div.innerHTML = `
+        <img class="close" src="img/cancel.png" width="20" alt="">
+        <h2>${message}</h2>
+        `;
+  modalContent.append(div);
+  setTimeout(() => {
+    div.remove();
+    modalDialog.classList.add("show");
+    modalDialog.classList.remove("hide");
+    hideModal();
+  }, 4000);
+}
+
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: "POST",
+//   body: JSON.stringify({name: 'Alex'}),
+//   headers: {
+//     'Content-type': 'application/json'
+//   }
+// })
+//   .then(response => response.json())
+//   .then(json => console.log(json));
+
+const btnScroll = document.querySelector('.learn-button');
+
+btnScroll.addEventListener('click', e => {
+  document.documentElement.scrollTop = 3000;
 });
 
-Promise.race([test(21000), test (2000)]).then(() => {
-      console.log('helllo');
+// Tabs 
+
+const tabs = document.querySelector('.tab'),
+      tab = document.querySelectorAll('.tabs');
+
+      function deletePages() {
+        tab.forEach(list => {
+              list.classList.remove('active-tab');
+        });
+  }
+  
+  function showPages(i = 1) {
+        tab[i].classList.add('active-tab');
+  }
+  
+  deletePages();
+  showPages();
+
+tabs.addEventListener('click', e => {
+      const target = e.target;
+      console.log('hello');
+
+      if (target && target.classList.contains('tabs')) {
+        tab.forEach((item, i) => {
+          if (target == item) {
+            deletePages();
+            showPages(i);
+          }
+        });
+      }
 });
 
-const req = new Promise ((resolve, reject) => {
-      setTimeout(() => {
-            const hello = {
-                  hello: 'dimitry'
-            };
-            // return hello;
-      }, 1000);
 
-}).then((data) => {
-      console.log(data);
-      return data;
-}).then(data => {
-      data.hello = 'hello';
-      console.log(data);
-}).catch(() => {
-      console.log('something went terribly wrong');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
