@@ -244,27 +244,34 @@ tabs.addEventListener('click', e => {
         });
       }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const hello = new Promise((resolve, reject) => {
+//         const names = [
+//           Anna = 'persone',
+//           David = 'persone',
+//           Mars = 'planet',
+//           Earth = 'platet',
+//           Earth = 5
+//         ];
+      
+//         resolve(names);
+// });
+// hello.then((names) => {
+//   names.Venus = 'planet';
+//   return names;
+// })
+// .then(data => {
+//     data.hello = 5;
+//     return data;
+// })
+// .then((dast) => {
+//   console.log(dast);
+// }).catch(() => {
+//   console.log('Somethink went wrong');
+// });
+// json-server --host 127.0.0.1  db.json
+fetch('http://127.0.0.1:3000/menu')
+.then(data => data.json())
+.then(data => console.log(data));
 
 
 
